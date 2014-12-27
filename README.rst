@@ -20,9 +20,9 @@ Usage of this decorator is really simple - to set the timeout, just add
     def myfunc(..):
         ..
 
-If the ``myfunc()`` call timeouts, :class:`TimeoutException` is raised.
+If the ``myfunc()`` call timeouts, ``TimeoutException`` is raised.
 
-Optinally, you can also set your own message for exception::
+Optionally, you can also set your own message for exception::
 
     @timeout(3, exception_message="Oh noez")
     def myfunc(..):
