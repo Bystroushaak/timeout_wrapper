@@ -35,3 +35,14 @@ or use default value, instead of exception::
         ..
 
 Thats all.
+
+
+Installation
+------------
+Module is hosted at `PYPI <https://pypi.python.org/pypi/timeout_wrapper>`_,
+and can be easily installed using
+`PIP <http://en.wikipedia.org/wiki/Pip_%28package_manager%29>`_:
+
+::
+
+    sudo pip install timeout_wrapper
