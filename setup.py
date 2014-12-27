@@ -6,8 +6,6 @@
 # Imports =====================================================================
 from setuptools import setup, find_packages
 
-from docs import getVersion
-
 
 # Variables ===================================================================
 changelog = open('CHANGES.rst').read()
@@ -15,6 +13,24 @@ long_description = "\n\n".join([
     open('README.rst').read(),
     changelog
 ])
+
+
+# Functions ===================================================================
+def allSame(s):
+    return not filter(lambda x: x != s[0], s)
+
+
+def hasDigit(s):
+    return any(map(lambda x: x.isdigit(), s))
+
+
+def getVersion(data):
+    data = data.splitlines()
+    return filter(
+        lambda (x, y):
+            len(x) == len(y) and allSame(y) and hasDigit(x) and "." in x,
+        zip(data, data[1:])
+    )[0][0]
 
 
 # Actual setup definition =====================================================
@@ -40,8 +56,6 @@ setup(
     package_dir={'': 'src'},
     include_package_data=True,
     zip_safe=True,
-
-    install_requires=open("requirements.txt").read().splitlines(),
 
     test_suite='py.test',
     tests_require=["pytest"],
